@@ -1,4 +1,4 @@
-#import /vendor/etc/init/hw/init.rpi4.usb.rc
+import /vendor/etc/init/hw/init.rpi4.usb.rc
 
 on init
     # mount debugfs
@@ -43,14 +43,10 @@ on boot
     setprop service.adb.tcp.port 5555
     start adbd
 
-service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/vendor/etc/wifi/wpa_supplicant.conf \
-    -I/vendor/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/vendor/wifi/wpa/sockets -g@android:wpa_wlan0
-    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
-    class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
+     -g@android:wpa_wlan0
+     interface aidl android.hardware.wifi.supplicant.ISupplicant/default
+     socket wpa_wlan0 dgram 660 wifi wifi
+     class main
+     disabled
+     oneshot
