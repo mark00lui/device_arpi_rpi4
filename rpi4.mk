@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-# USE_OEM_TV_APP := true
-# $(call inherit-product, device/google/atv/products/atv_base.mk)
 
 PRODUCT_NAME := rpi4
 PRODUCT_DEVICE := rpi4
@@ -24,29 +21,15 @@ PRODUCT_BRAND := arpi
 PRODUCT_MANUFACTURER := ARPi
 PRODUCT_MODEL := Raspberry Pi 4
 
-$(call inherit-product, device/google/gs101/aosp_common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
-$(call inherit-product, device/generic/common/gsi_system_ext.mk)
-$(call inherit-product, device/generic/common/gsi_product.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_release.mk)
-
-include frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 PRODUCT_PACKAGES += \
         android.hardware.wifi@1.0-service \
         wificond \
         libwpa_client \
         WifiOverlay \
-
-PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
-        frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
-        frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml \
-        frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
-        frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
-        frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
-        frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.drm.mode.force=1280x720 \
@@ -55,14 +38,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.vulkan=broadcom \
     wifi.interface=wlan0 \
     ro.rfkilldisabled=1
-
-# application packages
-PRODUCT_PACKAGES += \
-    RpLauncher
-
-# overlay packages
-PRODUCT_PACKAGES += \
-    RpFrameworkOverlay
 
 # system packages
 PRODUCT_PACKAGES += \
@@ -166,7 +141,7 @@ PRODUCT_COPY_FILES := \
     frameworks/base/data/sounds/effects/ogg/camera_click_48k.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui/camera_click.ogg \
     $(PRODUCT_COPY_FILES)
 
-# PRODUCT_AAPT_PREF_CONFIG := tvdpi
-# PRODUCT_CHARACTERISTICS := tv
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
+# PRODUCT_CHARACTERISTICS := default
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
