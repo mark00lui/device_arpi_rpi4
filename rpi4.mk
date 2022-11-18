@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-USE_OEM_TV_APP := true
-$(call inherit-product, device/google/atv/products/atv_base.mk)
+# $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+# USE_OEM_TV_APP := true
+# $(call inherit-product, device/google/atv/products/atv_base.mk)
 
 PRODUCT_NAME := rpi4
 PRODUCT_DEVICE := rpi4
