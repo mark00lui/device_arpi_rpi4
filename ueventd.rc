@@ -4,3 +4,5 @@
 /dev/ion                  0664   system     system
 /dev/video0               0660   system     camera
 /dev/video1               0660   system     camera
+/dev/ttyUSB*              0660   radio      radio
+/dev/cdc-wdm*             0660   radio      radio
