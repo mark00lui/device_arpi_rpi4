@@ -71,4 +71,6 @@ BOARD_CUSTOM_BT_CONFIG := device/arpi/rpi4/bluetooth/vnd_rpi4.txt
 BOARD_SEPOLICY_DIRS := \
     device/arpi/rpi4/sepolicy
 
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 DEVICE_MANIFEST_FILE := device/arpi/rpi4/manifest.xml
