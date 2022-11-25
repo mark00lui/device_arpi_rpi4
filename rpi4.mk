@@ -147,7 +147,6 @@ PRODUCT_COPY_FILES += \
      hardware/ril/libquectel-ril/arm64-v8a/chat:system/bin/chat \
      hardware/ril/libquectel-ril/arm64-v8a/ip-down:system/etc/ppp/ip-down \
      hardware/ril/libquectel-ril/arm64-v8a/ip-up:system/etc/ppp/ip-up \
-     hardware/ril/libquectel-ril/arm64-v8a/libril.so:/vendor/lib64/libril.so \
      hardware/ril/libquectel-ril/arm64-v8a/libreference-ril.so:/vendor/lib64/libreference-ril-quectel.so \
      hardware/ril/libquectel-ril/ql-ril.conf:system/etc/ql-ril.conf \
      hardware/ril/libquectel-ril/system_lib/lib32/libstdc++.so:/vendor/lib/libstdc++.so \
