@@ -22,8 +22,8 @@ PRODUCT_MANUFACTURER := ARPi
 PRODUCT_MODEL := Raspberry Pi 4
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
 
 PRODUCT_PACKAGES += \
         android.hardware.wifi@1.0-service \
@@ -84,7 +84,8 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.configstore@1.1-service \
     android.hardware.tv.cec@1.0-service.mock \
-    vndservicemanager
+    vndservicemanager \
+    rild
 
 # system configurations
 PRODUCT_COPY_FILES := \
